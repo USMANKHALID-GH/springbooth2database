@@ -5,7 +5,7 @@ public class DepartmentException extends  Exception{
         super(message);
     }
 
-    public DepartmentException(String message, Throwable cause) {
-        super(message, cause);
+    public DepartmentException(String message, Throwable se) {
+        super(message, se);
     }
 }
