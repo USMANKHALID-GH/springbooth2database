@@ -1,4 +1,4 @@
-package com.example.springboot.error;
+package com.example.springboot.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
