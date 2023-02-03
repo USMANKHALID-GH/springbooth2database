@@ -1,6 +1,7 @@
 package com.example.springboot.controllerc;
 
 import com.example.springboot.entity.Department;
+import com.example.springboot.error.DepartmentException;
 import com.example.springboot.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -27,7 +28,7 @@ public class DepartmentController {
     }
 
     @GetMapping("/{id}")
-    public Department getById(@PathVariable("id")  Long id){
+    public Department getById(@PathVariable("id")  Long id) throws DepartmentException {
         return  departmentService.findById(id);
 
     }

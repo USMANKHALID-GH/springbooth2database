@@ -1,6 +1,7 @@
 package com.example.springboot.service;
 
 import com.example.springboot.entity.Department;
+import com.example.springboot.error.DepartmentException;
 import com.example.springboot.repository.DepartmentRepo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,8 +32,13 @@ public class DepartmentService {
 
     }
 
-    public  Department findById(Long id){
-        return  departmentRepo.findById(id).get();
+    public  Department findById(Long id) throws DepartmentException {
+        Optional<Department> department=departmentRepo.findById(id);
+        if(!department.isPresent()){
+            throw new DepartmentException("Department id not found");
+        }
+
+        return  department.get();
     }
 
     public Department update(Long id, Department department) {
